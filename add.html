@@ -70,12 +70,15 @@
             /* 鼠标移入按钮范围时改变颜色 */
             background: #5599FF;
         }
+
         .msg {
             color: red;
         }
+
         body {
+            height: 100vh;
             background: url(https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302) no-repeat center center;
-    background-size: cover;
+            background-size: cover;
         }
     </style>
 </head>
@@ -96,21 +99,21 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-    $("button").on("click",function(){
-        if($('#text').val() == '' || $('#msg').val()== "") return 
+    $("button").on("click", function () {
+        if ($('#text').val() == '' || $('#msg').val() == "") return
         $.ajax({
-            type:'post',
-            url:"http://api.itse.ml:8901/me",
-            data:{
-                text:$.trim($('#text').val()),
-                msg:$.trim($('#msg').val()),
+            type: 'post',
+            url: "http://api.itse.ml:8901/me",
+            data: {
+                text: $.trim($('#text').val()),
+                msg: $.trim($('#msg').val()),
             },
-            success:function(data){
-               if(data.code == 200){
-                   alert(data.msg)
-               }else{
-                   alert(data.msg)
-               }
+            success: function (data) {
+                if (data.code == 200) {
+                    alert(data.msg)
+                } else {
+                    alert(data.msg)
+                }
             }
         })
     })
