@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>WIshMelz</title>
 	<link rel="stylesheet" href="./css.css">
 </head>
+
 <body>
 	<div class="shadow"></div>
 	<div class="connect">
@@ -15,11 +17,31 @@
 				<p>玲珑骰子安红豆，入骨相思君知否。</p>
 				<p></p>
 				<!-- <p>即将到来22世纪只有两种人是自由的：一种是隔离了所有时代的人，另一种就是黑客！</p> -->
-				
+
 			</div>
 		</div>
 	</div>
 	<div id="snowBox"></div>
 	<script src="./index.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		function getme() {
+			$.ajax({
+				type: "get",
+				url: "http://47.100.186.163:8901/me",
+				success: function (data) {
+					console.log(data);
+					if (data.code == 200) {
+						for (var i = 0; i < data.msg.length; i++) {
+							$(`<p>${data.msg[i].text}</p>`).appendTo($('.text'))
+						}
+					}
+				}
+			})
+		}
+		getme()
+	</script>
 </body>
+
 </html>
