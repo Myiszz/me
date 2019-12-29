@@ -12,7 +12,7 @@
             margin: 100px auto;
             /* text-align: center; */
             padding: 20px;
-            border: 1px solid #ccc;
+            /* border: 1px solid #ccc; */
         }
 
         .item {
@@ -73,6 +73,10 @@
         .msg {
             color: red;
         }
+        body {
+            background: url(https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302) no-repeat center center;
+    background-size: cover;
+        }
     </style>
 </head>
 
@@ -96,7 +100,7 @@
         if($('#text').val() == '' || $('#msg').val()== "") return 
         $.ajax({
             type:'post',
-            url:"http://47.100.186.163:8901/me",
+            url:"http://api.itse.ml:8901/me",
             data:{
                 text:$.trim($('#text').val()),
                 msg:$.trim($('#msg').val()),
