@@ -103,7 +103,7 @@
         if ($('#text').val() == '' || $('#msg').val() == "") return
         $.ajax({
             type: 'post',
-            url: "http://api.itse.ml:8901/me",
+            url: "https://api.itse.ml:8901/me",
             data: {
                 text: $.trim($('#text').val()),
                 msg: $.trim($('#msg').val()),
